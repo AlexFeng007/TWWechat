@@ -1,0 +1,778 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		154C9D7DFF328BE869979CF3 /* Pods_TWWechat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD6E68D3833691908CBF1C8 /* Pods_TWWechat.framework */; };
+		A56C4903E6FE4FB6E5256E12 /* Pods_TWWechatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30FC414B3171481CE60904B9 /* Pods_TWWechatUITests.framework */; };
+		A5BB12BDD8DE5C690F880112 /* Pods_TWWechatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FD60A9E85D016B66E882CE /* Pods_TWWechatTests.framework */; };
+		B954CB76255F884200ADBD0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CB75255F884200ADBD0D /* AppDelegate.m */; };
+		B954CB79255F884200ADBD0D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CB78255F884200ADBD0D /* SceneDelegate.m */; };
+		B954CB7C255F884200ADBD0D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CB7B255F884200ADBD0D /* ViewController.m */; };
+		B954CB7F255F884200ADBD0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B954CB7D255F884200ADBD0D /* Main.storyboard */; };
+		B954CB81255F884400ADBD0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B954CB80255F884400ADBD0D /* Assets.xcassets */; };
+		B954CB84255F884400ADBD0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B954CB82255F884400ADBD0D /* LaunchScreen.storyboard */; };
+		B954CB87255F884400ADBD0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CB86255F884400ADBD0D /* main.m */; };
+		B954CB91255F884400ADBD0D /* TWWechatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CB90255F884400ADBD0D /* TWWechatTests.m */; };
+		B954CB9C255F884400ADBD0D /* TWWechatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CB9B255F884400ADBD0D /* TWWechatUITests.m */; };
+		B954CBAD255F903800ADBD0D /* TWMomentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CBAC255F903800ADBD0D /* TWMomentViewController.m */; };
+		B954CBB0255FA3CB00ADBD0D /* TWMomentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CBAF255FA3CB00ADBD0D /* TWMomentHeaderView.m */; };
+		B954CBB8255FE3EC00ADBD0D /* TWTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CBB7255FE3EC00ADBD0D /* TWTweetCell.m */; };
+		B954CBBB255FE95700ADBD0D /* TWTweetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CBBA255FE95700ADBD0D /* TWTweetModel.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B954CB8D255F884400ADBD0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B954CB69255F884200ADBD0D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B954CB70255F884200ADBD0D;
+			remoteInfo = TWWechat;
+		};
+		B954CB98255F884400ADBD0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B954CB69255F884200ADBD0D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B954CB70255F884200ADBD0D;
+			remoteInfo = TWWechat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1AD6E68D3833691908CBF1C8 /* Pods_TWWechat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TWWechat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2814112301768A5E42E50F87 /* Pods-TWWechatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWWechatUITests.debug.xcconfig"; path = "Target Support Files/Pods-TWWechatUITests/Pods-TWWechatUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		30FC414B3171481CE60904B9 /* Pods_TWWechatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TWWechatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FD9A73E5CDFF7505E6E5532 /* Pods-TWWechatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWWechatTests.debug.xcconfig"; path = "Target Support Files/Pods-TWWechatTests/Pods-TWWechatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6D86AAC548D8C91CD01556FE /* Pods-TWWechatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWWechatTests.release.xcconfig"; path = "Target Support Files/Pods-TWWechatTests/Pods-TWWechatTests.release.xcconfig"; sourceTree = "<group>"; };
+		80F080B9E7E59DF5CB9A875D /* Pods-TWWechat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWWechat.release.xcconfig"; path = "Target Support Files/Pods-TWWechat/Pods-TWWechat.release.xcconfig"; sourceTree = "<group>"; };
+		B954CB71255F884200ADBD0D /* TWWechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TWWechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B954CB74255F884200ADBD0D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B954CB75255F884200ADBD0D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B954CB77255F884200ADBD0D /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		B954CB78255F884200ADBD0D /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		B954CB7A255F884200ADBD0D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B954CB7B255F884200ADBD0D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B954CB7E255F884200ADBD0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B954CB80255F884400ADBD0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B954CB83255F884400ADBD0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B954CB85255F884400ADBD0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B954CB86255F884400ADBD0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B954CB8C255F884400ADBD0D /* TWWechatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TWWechatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B954CB90255F884400ADBD0D /* TWWechatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWechatTests.m; sourceTree = "<group>"; };
+		B954CB92255F884400ADBD0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B954CB97255F884400ADBD0D /* TWWechatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TWWechatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B954CB9B255F884400ADBD0D /* TWWechatUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWechatUITests.m; sourceTree = "<group>"; };
+		B954CB9D255F884400ADBD0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B954CBAB255F903800ADBD0D /* TWMomentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWMomentViewController.h; sourceTree = "<group>"; };
+		B954CBAC255F903800ADBD0D /* TWMomentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWMomentViewController.m; sourceTree = "<group>"; };
+		B954CBAE255FA3CB00ADBD0D /* TWMomentHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWMomentHeaderView.h; sourceTree = "<group>"; };
+		B954CBAF255FA3CB00ADBD0D /* TWMomentHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWMomentHeaderView.m; sourceTree = "<group>"; };
+		B954CBB1255FE08B00ADBD0D /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		B954CBB6255FE3EC00ADBD0D /* TWTweetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWTweetCell.h; sourceTree = "<group>"; };
+		B954CBB7255FE3EC00ADBD0D /* TWTweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWTweetCell.m; sourceTree = "<group>"; };
+		B954CBB9255FE95700ADBD0D /* TWTweetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWTweetModel.h; sourceTree = "<group>"; };
+		B954CBBA255FE95700ADBD0D /* TWTweetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWTweetModel.m; sourceTree = "<group>"; };
+		D2AEB704AD4EB484860C0FE0 /* Pods-TWWechatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWWechatUITests.release.xcconfig"; path = "Target Support Files/Pods-TWWechatUITests/Pods-TWWechatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D32B79BB7E44011098E5B2D3 /* Pods-TWWechat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWWechat.debug.xcconfig"; path = "Target Support Files/Pods-TWWechat/Pods-TWWechat.debug.xcconfig"; sourceTree = "<group>"; };
+		D9FD60A9E85D016B66E882CE /* Pods_TWWechatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TWWechatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B954CB6E255F884200ADBD0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				154C9D7DFF328BE869979CF3 /* Pods_TWWechat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B954CB89255F884400ADBD0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5BB12BDD8DE5C690F880112 /* Pods_TWWechatTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B954CB94255F884400ADBD0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A56C4903E6FE4FB6E5256E12 /* Pods_TWWechatUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		452DFD97733583F9608439E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AD6E68D3833691908CBF1C8 /* Pods_TWWechat.framework */,
+				D9FD60A9E85D016B66E882CE /* Pods_TWWechatTests.framework */,
+				30FC414B3171481CE60904B9 /* Pods_TWWechatUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B954CB68255F884200ADBD0D = {
+			isa = PBXGroup;
+			children = (
+				B954CB73255F884200ADBD0D /* TWWechat */,
+				B954CB8F255F884400ADBD0D /* TWWechatTests */,
+				B954CB9A255F884400ADBD0D /* TWWechatUITests */,
+				B954CB72255F884200ADBD0D /* Products */,
+				FAF82E6A4C5B8F4953BBE202 /* Pods */,
+				452DFD97733583F9608439E0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B954CB72255F884200ADBD0D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B954CB71255F884200ADBD0D /* TWWechat.app */,
+				B954CB8C255F884400ADBD0D /* TWWechatTests.xctest */,
+				B954CB97255F884400ADBD0D /* TWWechatUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B954CB73255F884200ADBD0D /* TWWechat */ = {
+			isa = PBXGroup;
+			children = (
+				B954CBB2255FE35400ADBD0D /* Moment */,
+				B954CBB1255FE08B00ADBD0D /* Macros.h */,
+				B954CB74255F884200ADBD0D /* AppDelegate.h */,
+				B954CB75255F884200ADBD0D /* AppDelegate.m */,
+				B954CB77255F884200ADBD0D /* SceneDelegate.h */,
+				B954CB78255F884200ADBD0D /* SceneDelegate.m */,
+				B954CB7A255F884200ADBD0D /* ViewController.h */,
+				B954CB7B255F884200ADBD0D /* ViewController.m */,
+				B954CB7D255F884200ADBD0D /* Main.storyboard */,
+				B954CB80255F884400ADBD0D /* Assets.xcassets */,
+				B954CB82255F884400ADBD0D /* LaunchScreen.storyboard */,
+				B954CB85255F884400ADBD0D /* Info.plist */,
+				B954CB86255F884400ADBD0D /* main.m */,
+			);
+			path = TWWechat;
+			sourceTree = "<group>";
+		};
+		B954CB8F255F884400ADBD0D /* TWWechatTests */ = {
+			isa = PBXGroup;
+			children = (
+				B954CB90255F884400ADBD0D /* TWWechatTests.m */,
+				B954CB92255F884400ADBD0D /* Info.plist */,
+			);
+			path = TWWechatTests;
+			sourceTree = "<group>";
+		};
+		B954CB9A255F884400ADBD0D /* TWWechatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B954CB9B255F884400ADBD0D /* TWWechatUITests.m */,
+				B954CB9D255F884400ADBD0D /* Info.plist */,
+			);
+			path = TWWechatUITests;
+			sourceTree = "<group>";
+		};
+		B954CBB2255FE35400ADBD0D /* Moment */ = {
+			isa = PBXGroup;
+			children = (
+				B954CBB5255FE38700ADBD0D /* model */,
+				B954CBB4255FE37D00ADBD0D /* view */,
+				B954CBB3255FE36A00ADBD0D /* controller */,
+			);
+			path = Moment;
+			sourceTree = "<group>";
+		};
+		B954CBB3255FE36A00ADBD0D /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				B954CBAB255F903800ADBD0D /* TWMomentViewController.h */,
+				B954CBAC255F903800ADBD0D /* TWMomentViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		B954CBB4255FE37D00ADBD0D /* view */ = {
+			isa = PBXGroup;
+			children = (
+				B954CBAE255FA3CB00ADBD0D /* TWMomentHeaderView.h */,
+				B954CBAF255FA3CB00ADBD0D /* TWMomentHeaderView.m */,
+				B954CBB6255FE3EC00ADBD0D /* TWTweetCell.h */,
+				B954CBB7255FE3EC00ADBD0D /* TWTweetCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		B954CBB5255FE38700ADBD0D /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B954CBB9255FE95700ADBD0D /* TWTweetModel.h */,
+				B954CBBA255FE95700ADBD0D /* TWTweetModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		FAF82E6A4C5B8F4953BBE202 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D32B79BB7E44011098E5B2D3 /* Pods-TWWechat.debug.xcconfig */,
+				80F080B9E7E59DF5CB9A875D /* Pods-TWWechat.release.xcconfig */,
+				4FD9A73E5CDFF7505E6E5532 /* Pods-TWWechatTests.debug.xcconfig */,
+				6D86AAC548D8C91CD01556FE /* Pods-TWWechatTests.release.xcconfig */,
+				2814112301768A5E42E50F87 /* Pods-TWWechatUITests.debug.xcconfig */,
+				D2AEB704AD4EB484860C0FE0 /* Pods-TWWechatUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B954CB70255F884200ADBD0D /* TWWechat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B954CBA0255F884400ADBD0D /* Build configuration list for PBXNativeTarget "TWWechat" */;
+			buildPhases = (
+				AFBCFA92A2EB919DBE68CD9C /* [CP] Check Pods Manifest.lock */,
+				B954CB6D255F884200ADBD0D /* Sources */,
+				B954CB6E255F884200ADBD0D /* Frameworks */,
+				B954CB6F255F884200ADBD0D /* Resources */,
+				8FFA1416A9D5BEB809934CF6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TWWechat;
+			productName = TWWechat;
+			productReference = B954CB71255F884200ADBD0D /* TWWechat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B954CB8B255F884400ADBD0D /* TWWechatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B954CBA3255F884400ADBD0D /* Build configuration list for PBXNativeTarget "TWWechatTests" */;
+			buildPhases = (
+				CA9103A0A30284A571D2BDA4 /* [CP] Check Pods Manifest.lock */,
+				B954CB88255F884400ADBD0D /* Sources */,
+				B954CB89255F884400ADBD0D /* Frameworks */,
+				B954CB8A255F884400ADBD0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B954CB8E255F884400ADBD0D /* PBXTargetDependency */,
+			);
+			name = TWWechatTests;
+			productName = TWWechatTests;
+			productReference = B954CB8C255F884400ADBD0D /* TWWechatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B954CB96255F884400ADBD0D /* TWWechatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B954CBA6255F884400ADBD0D /* Build configuration list for PBXNativeTarget "TWWechatUITests" */;
+			buildPhases = (
+				81DEFBDECB01D54392210625 /* [CP] Check Pods Manifest.lock */,
+				B954CB93255F884400ADBD0D /* Sources */,
+				B954CB94255F884400ADBD0D /* Frameworks */,
+				B954CB95255F884400ADBD0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B954CB99255F884400ADBD0D /* PBXTargetDependency */,
+			);
+			name = TWWechatUITests;
+			productName = TWWechatUITests;
+			productReference = B954CB97255F884400ADBD0D /* TWWechatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B954CB69255F884200ADBD0D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = YaphetS;
+				TargetAttributes = {
+					B954CB70255F884200ADBD0D = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					B954CB8B255F884400ADBD0D = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = B954CB70255F884200ADBD0D;
+					};
+					B954CB96255F884400ADBD0D = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = B954CB70255F884200ADBD0D;
+					};
+				};
+			};
+			buildConfigurationList = B954CB6C255F884200ADBD0D /* Build configuration list for PBXProject "TWWechat" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B954CB68255F884200ADBD0D;
+			productRefGroup = B954CB72255F884200ADBD0D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B954CB70255F884200ADBD0D /* TWWechat */,
+				B954CB8B255F884400ADBD0D /* TWWechatTests */,
+				B954CB96255F884400ADBD0D /* TWWechatUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B954CB6F255F884200ADBD0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B954CB84255F884400ADBD0D /* LaunchScreen.storyboard in Resources */,
+				B954CB81255F884400ADBD0D /* Assets.xcassets in Resources */,
+				B954CB7F255F884200ADBD0D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B954CB8A255F884400ADBD0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B954CB95255F884400ADBD0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		81DEFBDECB01D54392210625 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TWWechatUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FFA1416A9D5BEB809934CF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TWWechat/Pods-TWWechat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TWWechat/Pods-TWWechat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TWWechat/Pods-TWWechat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFBCFA92A2EB919DBE68CD9C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TWWechat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA9103A0A30284A571D2BDA4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TWWechatTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B954CB6D255F884200ADBD0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B954CB7C255F884200ADBD0D /* ViewController.m in Sources */,
+				B954CB76255F884200ADBD0D /* AppDelegate.m in Sources */,
+				B954CBB8255FE3EC00ADBD0D /* TWTweetCell.m in Sources */,
+				B954CBB0255FA3CB00ADBD0D /* TWMomentHeaderView.m in Sources */,
+				B954CB87255F884400ADBD0D /* main.m in Sources */,
+				B954CB79255F884200ADBD0D /* SceneDelegate.m in Sources */,
+				B954CBBB255FE95700ADBD0D /* TWTweetModel.m in Sources */,
+				B954CBAD255F903800ADBD0D /* TWMomentViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B954CB88255F884400ADBD0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B954CB91255F884400ADBD0D /* TWWechatTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B954CB93255F884400ADBD0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B954CB9C255F884400ADBD0D /* TWWechatUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B954CB8E255F884400ADBD0D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B954CB70255F884200ADBD0D /* TWWechat */;
+			targetProxy = B954CB8D255F884400ADBD0D /* PBXContainerItemProxy */;
+		};
+		B954CB99255F884400ADBD0D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B954CB70255F884200ADBD0D /* TWWechat */;
+			targetProxy = B954CB98255F884400ADBD0D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B954CB7D255F884200ADBD0D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B954CB7E255F884200ADBD0D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B954CB82255F884400ADBD0D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B954CB83255F884400ADBD0D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B954CB9E255F884400ADBD0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B954CB9F255F884400ADBD0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B954CBA1255F884400ADBD0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D32B79BB7E44011098E5B2D3 /* Pods-TWWechat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TWWechat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.YaphetS.TWWechat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B954CBA2255F884400ADBD0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80F080B9E7E59DF5CB9A875D /* Pods-TWWechat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TWWechat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.YaphetS.TWWechat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B954CBA4255F884400ADBD0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FD9A73E5CDFF7505E6E5532 /* Pods-TWWechatTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TWWechatTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.YaphetS.TWWechatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TWWechat.app/TWWechat";
+			};
+			name = Debug;
+		};
+		B954CBA5255F884400ADBD0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D86AAC548D8C91CD01556FE /* Pods-TWWechatTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TWWechatTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.YaphetS.TWWechatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TWWechat.app/TWWechat";
+			};
+			name = Release;
+		};
+		B954CBA7255F884400ADBD0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2814112301768A5E42E50F87 /* Pods-TWWechatUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TWWechatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.YaphetS.TWWechatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TWWechat;
+			};
+			name = Debug;
+		};
+		B954CBA8255F884400ADBD0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2AEB704AD4EB484860C0FE0 /* Pods-TWWechatUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TWWechatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.YaphetS.TWWechatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TWWechat;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B954CB6C255F884200ADBD0D /* Build configuration list for PBXProject "TWWechat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B954CB9E255F884400ADBD0D /* Debug */,
+				B954CB9F255F884400ADBD0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B954CBA0255F884400ADBD0D /* Build configuration list for PBXNativeTarget "TWWechat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B954CBA1255F884400ADBD0D /* Debug */,
+				B954CBA2255F884400ADBD0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B954CBA3255F884400ADBD0D /* Build configuration list for PBXNativeTarget "TWWechatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B954CBA4255F884400ADBD0D /* Debug */,
+				B954CBA5255F884400ADBD0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B954CBA6255F884400ADBD0D /* Build configuration list for PBXNativeTarget "TWWechatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B954CBA7255F884400ADBD0D /* Debug */,
+				B954CBA8255F884400ADBD0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B954CB69255F884200ADBD0D /* Project object */;
+}
