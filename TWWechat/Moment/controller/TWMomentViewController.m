@@ -25,7 +25,6 @@
 
 @property (nonatomic, strong) TWUserModel *userModel;
 @property (nonatomic, strong) NSMutableArray *tweetArray;
-
 @end
 
 @implementation TWMomentViewController
@@ -51,11 +50,19 @@
     return self.tweetArray.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TWTweetModel *model = [self.tweetArray objectAtIndex:indexPath.row];
+    return model.rowHeight;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TWTweetCell *cell = [tableView dequeueReusableCellWithIdentifier:[TWTweetCell cellIdentifier]];
-    if (!cell) {
-        cell = [[TWTweetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[TWTweetCell cellIdentifier]];
+    if (!cell)
+    {
+        cell = [[TWTweetCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                  reuseIdentifier:[TWTweetCell cellIdentifier]];
     }
     cell.delegate = self;
     [cell configWithModel:[self.tweetArray objectAtIndex:indexPath.row]];
@@ -67,17 +74,23 @@
 {
     if (isShow) {
         NSLog(@"show");
-        
     }else {
         NSLog(@"not show");
     }
     
-//    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-//    if (indexPath) {
-//        [UIView performWithoutAnimation:^{
-//            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//        }];
-//    }
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    TWTweetModel *model = [self.tweetArray objectAtIndex:indexPath.row];
+    if (isShow) {
+        model.isFullText = YES;
+    }else{
+         model.isFullText = NO;
+    }
+    
+    if (indexPath) {
+        [UIView performWithoutAnimation:^{
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }];
+    }
 }
 
 - (void)didClickImageWithIndex:(NSInteger)imageIndex
@@ -146,6 +159,7 @@
             for (id sampleModel in listArray) {
                 TWTweetModel *model = [TWTweetModel mj_objectWithKeyValues:sampleModel];
                 if (model.content) { // 未发言Content的过滤掉
+                    [model calculateContentWords];
                     [weakSelf.tweetArray addObject:model];
                 }
             }

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 /*TWTweetModel*/
 @class TWMomentSenderModel;
@@ -17,8 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSArray <TWMomentCommentItemModel *> *commentArray;
 @property (nonatomic, strong) TWMomentSenderModel *authorModel;
 
-//layout
+
+//method
+- (void)calculateContentWords;
+//layout views properties
 @property (nonatomic, assign) BOOL isFullText; //default NO
+@property (nonatomic, assign) CGFloat rowHeight;
 @end
 
 /*TWMomentSenderModel*/

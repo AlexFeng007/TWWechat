@@ -18,6 +18,15 @@
         @"commentArray":@"comments",
     };
 }
+
+- (void)calculateContentWords
+{
+    if ([self.content length] > 100) { // maxwords = 100
+        self.isFullText = NO;
+    }else{
+        self.isFullText = YES;
+    }
+}
 @end
 
 /*TWMomentSenderModel*/

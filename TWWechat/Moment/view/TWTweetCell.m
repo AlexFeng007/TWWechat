@@ -8,18 +8,27 @@
 
 #import "TWTweetCell.h"
 #import "TWTweetModel.h"
+
 #import "Masonry.h"
 #import "Macros.h"
 #import "SDWebImage.h"
+#import "UIView+Geometry.h"
+
+CGFloat maxLimitHeight = 0;
+CGFloat lineSpacing = 5;
+CGFloat itemSpaceing = 10;
 
 @interface TWTweetCell()
-
 @property (nonatomic, strong) UILabel *nickName;
-@property (nonatomic, strong) UIImageView *avartImageView;
 @property (nonatomic, strong) UILabel *contentLabel;
+
+@property (nonatomic, strong) UIImageView *avartImageView;
 @property (nonatomic, strong) UIButton *shrinkBtn;
+
 @property (nonatomic, strong) NSMutableArray *imageArray;
 @property (nonatomic, strong) NSMutableArray *commentArray;
+
+@property (nonatomic, strong) TWTweetModel *model;
 @end
 
 @implementation TWTweetCell
@@ -40,44 +49,61 @@
 {
     [self.contentView addSubview:self.avartImageView];
     [self.contentView addSubview:self.nickName];
-    [self.nickName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.avartImageView.mas_top);
-        make.left.mas_equalTo(self.avartImageView.mas_right).offset(10.f);
-        make.width.mas_equalTo(120.f);
-        make.height.mas_equalTo(20.f);
-    }];
-    
     [self.contentView addSubview:self.contentLabel];
-    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.nickName.mas_left);
-        make.top.mas_equalTo(self.nickName.mas_bottom).offset(10.f);
-        make.right.mas_equalTo(self.contentView.mas_right).offset(-10.f);
-        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-10.f);
-    }];
-    
-//    [self.contentView addSubview:self.shrinkBtn];
-//    [self.shrinkBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(self.nickName.mas_left);
-//        make.top.mas_equalTo(self.contentLabel.mas_bottom).offset(10);
-//        make.width.mas_equalTo(40);
-//        make.height.mas_equalTo(20);
-//    }];
+    [self.contentView addSubview:self.shrinkBtn];
 }
 
 - (void)updateLayoutViews
 {
+    //content
+    if([self.contentLabel.text length] > 0) {
+        NSMutableParagraphStyle * style = [[NSMutableParagraphStyle alloc] init];
+        style.lineSpacing = lineSpacing;
+        NSMutableAttributedString * attributedText = [[NSMutableAttributedString alloc] initWithString:self.contentLabel.text];
+        [attributedText addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0,[self.contentLabel.text length])];
+        self.contentLabel.attributedText = attributedText;
+        
+        // 判断显示'全文'/'收起'
+        if(self.model.isFullText) {
+            self.contentLabel.numberOfLines = 0;
+            self.shrinkBtn.selected = self.model.isFullText;
+            self.shrinkBtn.hidden = NO;
+        }else{
+            self.contentLabel.numberOfLines = 3;
+            self.shrinkBtn.hidden = NO;
+            self.shrinkBtn.selected = self.model.isFullText;
+        }
+        CGSize resultSize = [self.contentLabel sizeThatFits:CGSizeMake(kContentMaxWidth, MAXFLOAT)];
+        CGFloat labelHeight = resultSize.height;
+        self.contentLabel.frame = CGRectMake(self.nickName.left, self.nickName.bottom + itemSpaceing, resultSize.width, labelHeight);
+        self.shrinkBtn.frame = CGRectMake(self.nickName.left, self.contentLabel.bottom + itemSpaceing, 40, 20);
+    }
     
+    
+    if ([self.contentLabel.text length] > 0 && [self.contentLabel.text length] < 100) {
+        self.contentLabel.numberOfLines = 0;
+        self.shrinkBtn.hidden = YES;
+    }
+    
+    //最终缓存行高 (暂时以contentLabel为基准)
+    if (self.shrinkBtn.isHidden) {
+        self.model.rowHeight = self.contentLabel.bottom + 15;
+    }else{
+        self.model.rowHeight = self.shrinkBtn.bottom + 15;
+    }
 }
 
 #pragma mark: public method
 - (void)configWithModel:(TWTweetModel *)model
 {
-    self.contentLabel.text = model.content;
+    self.model = model;
     self.nickName.text = model.authorModel.nick;
+    self.contentLabel.text = model.content;
     self.imageArray = model.imageList.mutableCopy;
     self.commentArray = model.commentArray.mutableCopy;
     
     [self.avartImageView sd_setImageWithURL:[NSURL URLWithString:model.authorModel.avatar] placeholderImage:[UIImage imageNamed:@"user_avatar_image"]];
+    [self updateLayoutViews];
 }
 
 #pragma mark: lazy
@@ -94,7 +120,7 @@
 - (UILabel *)nickName
 {
     if (!_nickName) {
-        _nickName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 20)];
+        _nickName = [[UILabel alloc] initWithFrame:CGRectMake(self.avartImageView.right + 10, 15, 120, 20)];
         _nickName.textColor = kNickNameColor;
         _nickName.font = [UIFont systemFontOfSize:17.f];
         _nickName.textAlignment = NSTextAlignmentLeft;
@@ -110,7 +136,6 @@
         _contentLabel.numberOfLines = 0;
         [_contentLabel sizeToFit];
     }
-    
     return _contentLabel;
 }
 
@@ -148,6 +173,8 @@
 - (void)shrinkClicked:(UIButton *)sender
 {
     sender.selected = !sender.selected; //反选
+    self.model.isFullText = !self.model.isFullText;
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(didClickShinkWithType:withCell:)]) {
         [self.delegate didClickShinkWithType:sender.selected withCell:self];
     }
