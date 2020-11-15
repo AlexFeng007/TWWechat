@@ -10,6 +10,7 @@
 #import "TWTweetModel.h"
 #import "Masonry.h"
 #import "Macros.h"
+#import "SDWebImage.h"
 
 @interface TWTweetCell()
 
@@ -18,7 +19,7 @@
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UIButton *shrinkBtn;
 @property (nonatomic, strong) NSMutableArray *imageArray;
-
+@property (nonatomic, strong) NSMutableArray *commentArray;
 @end
 
 @implementation TWTweetCell
@@ -54,20 +55,29 @@
         make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-10.f);
     }];
     
-    [self.contentView addSubview:self.shrinkBtn];
-    [self.shrinkBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.nickName.mas_left);
-        make.top.mas_equalTo(self.contentLabel.mas_bottom).offset(10);
-        make.width.mas_equalTo(40);
-        make.height.mas_equalTo(20);
-    }];
+//    [self.contentView addSubview:self.shrinkBtn];
+//    [self.shrinkBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(self.nickName.mas_left);
+//        make.top.mas_equalTo(self.contentLabel.mas_bottom).offset(10);
+//        make.width.mas_equalTo(40);
+//        make.height.mas_equalTo(20);
+//    }];
+}
+
+- (void)updateLayoutViews
+{
+    
 }
 
 #pragma mark: public method
 - (void)configWithModel:(TWTweetModel *)model
 {
     self.contentLabel.text = model.content;
-    NSLog(@"the content is %@",model.content);
+    self.nickName.text = model.authorModel.nick;
+    self.imageArray = model.imageList.mutableCopy;
+    self.commentArray = model.commentArray.mutableCopy;
+    
+    [self.avartImageView sd_setImageWithURL:[NSURL URLWithString:model.authorModel.avatar] placeholderImage:[UIImage imageNamed:@"user_avatar_image"]];
 }
 
 #pragma mark: lazy
@@ -75,22 +85,20 @@
 {
     if (!_avartImageView) {
         _avartImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 15, 40, 40)];
-        _avartImageView.image = [UIImage imageNamed:@"user_avatar_image"];
         _avartImageView.layer.cornerRadius = 6;
         _avartImageView.clipsToBounds = YES;
     }
     return _avartImageView;
 }
+
 - (UILabel *)nickName
 {
     if (!_nickName) {
         _nickName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 20)];
-        _nickName.text = @"YaphetS";
         _nickName.textColor = kNickNameColor;
         _nickName.font = [UIFont systemFontOfSize:17.f];
         _nickName.textAlignment = NSTextAlignmentLeft;
     }
-    
     return _nickName;
 }
 
@@ -117,8 +125,23 @@
         [_shrinkBtn addTarget:self action:@selector(shrinkClicked:) forControlEvents:UIControlEventTouchUpInside];
         [_shrinkBtn sizeToFit];
     }
-    
     return _shrinkBtn;
+}
+
+- (NSMutableArray *)imageArray
+{
+    if (!_imageArray) {
+        _imageArray = [NSMutableArray new];
+    }
+    return _imageArray;
+}
+
+- (NSMutableArray *)commentArray
+{
+    if (!_commentArray) {
+        _commentArray = [NSMutableArray new];
+    }
+    return _commentArray;
 }
 
 #pragma mark: Actions

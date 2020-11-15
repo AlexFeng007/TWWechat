@@ -23,8 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)cellIdentifier;
 - (void)configWithModel:(TWTweetModel *)model;
 
-//Temp Data:will delete
-//@property (nonatomic, assign) BOOL isFullText;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -25,8 +25,7 @@
 
 @property (nonatomic, strong) TWUserModel *userModel;
 @property (nonatomic, strong) NSMutableArray *tweetArray;
-// mock
-@property (nonatomic, strong) NSMutableArray *mockTitleArray;
+
 @end
 
 @implementation TWMomentViewController
@@ -40,6 +39,9 @@
 - (void)setupViews
 {
     [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
 }
 
 #pragma mark: Delegate && Datasource
@@ -109,7 +111,6 @@
     if (!_tweetArray) {
         _tweetArray = [NSMutableArray new];
     }
-    
     return _tweetArray;
 }
 
@@ -138,10 +139,9 @@
 
 - (void)requestMomentInfo{
     __weak typeof(self) weakSelf = self;
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
     [TWNetworkManager requestMomentInfoWithFinishBlock:^(id data, NSError *error) {
         if (error.code == 0) {
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
             NSArray *listArray = (NSArray *)data;
             for (id sampleModel in listArray) {
                 TWTweetModel *model = [TWTweetModel mj_objectWithKeyValues:sampleModel];
@@ -151,18 +151,10 @@
             }
             if (weakSelf.tweetArray.count > 0) {
                 [weakSelf.tableView reloadData];
+                [MBProgressHUD hideHUDForView:self.tableView animated:YES];
             }
         }
     }];
-}
-
-#pragma mark: date mocks
-- (NSMutableArray *)mockTitleArray
-{
-    if (!_mockTitleArray) {
-        _mockTitleArray = [NSMutableArray new];
-    }
-    return _mockTitleArray;
 }
 
 - (void)initData{
