@@ -49,7 +49,8 @@
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.nickName.mas_left);
         make.top.mas_equalTo(self.nickName.mas_bottom).offset(10.f);
-        make.right.mas_equalTo(self.mas_right).offset(-10.f);
+        make.right.mas_equalTo(self.contentView.mas_right).offset(-10.f);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-10.f);
     }];
     
     [self.contentView addSubview:self.shrinkBtn];
@@ -68,7 +69,56 @@
         return ;
     }
     
+}
+
+- (void)setContentTitle:(NSString *)content
+{
+    self.contentLabel.text = content;
+    self.shrinkBtn.hidden = YES;
     
+    //判断显示 全文/收起
+    if ([content length]) {
+        CGSize resultSize = [self.contentLabel sizeThatFits:CGSizeMake(kContentMaxWidth, MAXFLOAT)];
+        CGFloat labelHeight = resultSize.height;
+        if (labelHeight > kContentMaxHeight) {
+            self.contentLabel.backgroundColor = [UIColor redColor];
+            self.shrinkBtn.hidden = NO;
+            if (self.isFullText) {
+               
+                
+            }else{
+                //收缩全文
+                [self.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.top.mas_equalTo(self.nickName.mas_bottom).offset(10.f);
+                    make.left.mas_equalTo(self.nickName.mas_left);
+                    make.right.mas_equalTo(self.contentView.mas_right).offset(-10.f);
+                    make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-10.f);
+                }];
+                [self.shrinkBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.left.mas_equalTo(self.nickName.mas_left);
+                    make.top.mas_equalTo(self.nickName.mas_bottom).offset(80.f);
+                    make.width.mas_equalTo(40);
+                    make.height.mas_equalTo(20);
+                    make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-10.f);
+                }];
+            }
+        }else{
+            self.contentLabel.backgroundColor = [UIColor greenColor];
+            self.shrinkBtn.hidden = YES;
+            [self.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+                   make.left.mas_equalTo(self.nickName.mas_left);
+                   make.top.mas_equalTo(self.nickName.mas_bottom).offset(10.f);
+                   make.right.mas_equalTo(self.contentView.mas_right).offset(-10.f);
+                   make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-10.f);
+            }];
+            [self.shrinkBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(self.nickName.mas_left);
+                make.top.mas_equalTo(self.contentLabel.mas_bottom).offset(10);
+                make.width.mas_equalTo(40);
+                make.height.mas_equalTo(20);
+            }];
+        }
+    }
 }
 
 #pragma mark: lazy
@@ -99,8 +149,7 @@
 {
     if (!_contentLabel) {
         _contentLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _contentLabel.text = @"先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度";
-        _contentLabel.font = [UIFont systemFontOfSize:17.f];
+        _contentLabel.font = [UIFont systemFontOfSize:15.f];
         _contentLabel.numberOfLines = 0;
         [_contentLabel sizeToFit];
     }
@@ -126,8 +175,10 @@
 #pragma mark: Actions
 - (void)shrinkClicked:(UIButton *)sender
 {
-    //Todo: layout subview cell content view
-    sender.selected = !sender.selected;
+    sender.selected = !sender.selected; //反选
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didClickShinkWithType:withCell:)]) {
+        [self.delegate didClickShinkWithType:sender.selected withCell:self];
+    }
 }
 
 #pragma mark: cellIdentifier

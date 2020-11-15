@@ -10,6 +10,7 @@ target 'TWWechat' do
   pod  'MJExtension'
   pod  'AFNetworking'
   pod  'SDWebImage'
+  pod  'MBProgressHUD'
 
   target 'TWWechatTests' do
     inherit! :search_paths

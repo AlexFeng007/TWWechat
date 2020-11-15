@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class TWUserModel;
 @interface TWMomentHeaderView : UIView
-
+- (void)updateUserInfoWith:(TWUserModel *)userModel;
 @end
 
 NS_ASSUME_NONNULL_END

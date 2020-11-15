@@ -21,4 +21,8 @@
 // Button TextColor
 #define kButtonTextColor     [UIColor colorWithRed:0.09 green:0.49 blue:0.99 alpha:1.0]
 
+// TweetCell content MaxWidth && MaxHeight
+#define kContentMaxWidth     [UIScreen mainScreen].bounds.size.width - 15*2 - 40
+#define kContentMaxHeight    100
+
 #endif /* Macros_h */

@@ -23,6 +23,8 @@
 		B954CBB0255FA3CB00ADBD0D /* TWMomentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CBAF255FA3CB00ADBD0D /* TWMomentHeaderView.m */; };
 		B954CBB8255FE3EC00ADBD0D /* TWTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CBB7255FE3EC00ADBD0D /* TWTweetCell.m */; };
 		B954CBBB255FE95700ADBD0D /* TWTweetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CBBA255FE95700ADBD0D /* TWTweetModel.m */; };
+		B954CBBE2561269100ADBD0D /* TWUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CBBD2561269100ADBD0D /* TWUserModel.m */; };
+		B954CBC22561285100ADBD0D /* TWNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CBC12561285100ADBD0D /* TWNetworkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,10 @@
 		B954CBB7255FE3EC00ADBD0D /* TWTweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWTweetCell.m; sourceTree = "<group>"; };
 		B954CBB9255FE95700ADBD0D /* TWTweetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWTweetModel.h; sourceTree = "<group>"; };
 		B954CBBA255FE95700ADBD0D /* TWTweetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWTweetModel.m; sourceTree = "<group>"; };
+		B954CBBC2561269100ADBD0D /* TWUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWUserModel.h; sourceTree = "<group>"; };
+		B954CBBD2561269100ADBD0D /* TWUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWUserModel.m; sourceTree = "<group>"; };
+		B954CBC02561285100ADBD0D /* TWNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWNetworkManager.h; sourceTree = "<group>"; };
+		B954CBC12561285100ADBD0D /* TWNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWNetworkManager.m; sourceTree = "<group>"; };
 		D2AEB704AD4EB484860C0FE0 /* Pods-TWWechatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWWechatUITests.release.xcconfig"; path = "Target Support Files/Pods-TWWechatUITests/Pods-TWWechatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D32B79BB7E44011098E5B2D3 /* Pods-TWWechat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWWechat.debug.xcconfig"; path = "Target Support Files/Pods-TWWechat/Pods-TWWechat.debug.xcconfig"; sourceTree = "<group>"; };
 		D9FD60A9E85D016B66E882CE /* Pods_TWWechatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TWWechatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +188,7 @@
 		B954CBB2255FE35400ADBD0D /* Moment */ = {
 			isa = PBXGroup;
 			children = (
+				B954CBBF2561282C00ADBD0D /* network */,
 				B954CBB5255FE38700ADBD0D /* model */,
 				B954CBB4255FE37D00ADBD0D /* view */,
 				B954CBB3255FE36A00ADBD0D /* controller */,
@@ -214,8 +221,19 @@
 			children = (
 				B954CBB9255FE95700ADBD0D /* TWTweetModel.h */,
 				B954CBBA255FE95700ADBD0D /* TWTweetModel.m */,
+				B954CBBC2561269100ADBD0D /* TWUserModel.h */,
+				B954CBBD2561269100ADBD0D /* TWUserModel.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		B954CBBF2561282C00ADBD0D /* network */ = {
+			isa = PBXGroup;
+			children = (
+				B954CBC02561285100ADBD0D /* TWNetworkManager.h */,
+				B954CBC12561285100ADBD0D /* TWNetworkManager.m */,
+			);
+			path = network;
 			sourceTree = "<group>";
 		};
 		FAF82E6A4C5B8F4953BBE202 /* Pods */ = {
@@ -452,11 +470,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B954CB7C255F884200ADBD0D /* ViewController.m in Sources */,
+				B954CBC22561285100ADBD0D /* TWNetworkManager.m in Sources */,
 				B954CB76255F884200ADBD0D /* AppDelegate.m in Sources */,
 				B954CBB8255FE3EC00ADBD0D /* TWTweetCell.m in Sources */,
 				B954CBB0255FA3CB00ADBD0D /* TWMomentHeaderView.m in Sources */,
 				B954CB87255F884400ADBD0D /* main.m in Sources */,
 				B954CB79255F884200ADBD0D /* SceneDelegate.m in Sources */,
+				B954CBBE2561269100ADBD0D /* TWUserModel.m in Sources */,
 				B954CBBB255FE95700ADBD0D /* TWTweetModel.m in Sources */,
 				B954CBAD255F903800ADBD0D /* TWMomentViewController.m in Sources */,
 			);

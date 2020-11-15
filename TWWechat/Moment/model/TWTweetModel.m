@@ -7,7 +7,12 @@
 //
 
 #import "TWTweetModel.h"
-
+#import "MJExtension.h"
 @implementation TWTweetModel
++ (NSDictionary *)mj_replacedKeyFromPropertyName{
+    return @{
+        @"avartUrl":@"serverAvaatr",
+    };
+}
 
 @end

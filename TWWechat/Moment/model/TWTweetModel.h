@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
 NS_ASSUME_NONNULL_BEGIN
-
 @interface TWTweetModel : NSObject
+@property (nonatomic, strong) NSString *avartUrl;
+@property (nonatomic, strong) NSString *nickname;
+@property (nonatomic, strong) NSString *content;
 
+//layout
+@property (nonatomic, assign) BOOL isFullText; //default NO
 @end
-
 NS_ASSUME_NONNULL_END

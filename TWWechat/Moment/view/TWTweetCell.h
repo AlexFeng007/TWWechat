@@ -9,10 +9,23 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@class TWTweetCell;
+@protocol TWTweetCellDelegate<NSObject>
+@required
+- (void)didClickShinkWithType:(BOOL)isShow withCell:(TWTweetCell *)cell;
+- (void)didClickImageWithIndex:(NSInteger)imageIndex;
+@end
+
 @class TWTweetModel;
 @interface TWTweetCell : UITableViewCell
+@property (nonatomic, weak) id<TWTweetCellDelegate> delegate;
+
 + (NSString *)cellIdentifier;
 - (void)setContentWith:(TWTweetModel *)model;
+- (void)setContentTitle:(NSString *)content;
+
+//Temp Data:will delete
+@property (nonatomic, assign) BOOL isFullText;
 @end
 
 NS_ASSUME_NONNULL_END
