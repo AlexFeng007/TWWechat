@@ -24,7 +24,7 @@
 @property (nonatomic, strong) TWMomentHeaderView *tableHeaderView;
 
 @property (nonatomic, strong) TWUserModel *userModel;
-
+@property (nonatomic, strong) NSMutableArray *tweetArray;
 // mock
 @property (nonatomic, strong) NSMutableArray *mockTitleArray;
 @end
@@ -33,8 +33,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupViews];
     [self initData];
+    [self setupViews];
 }
 
 - (void)setupViews
@@ -46,7 +46,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.mockTitleArray.count;
+    return self.tweetArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,7 +56,7 @@
         cell = [[TWTweetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[TWTweetCell cellIdentifier]];
     }
     cell.delegate = self;
-    [cell setContentTitle:[self.mockTitleArray objectAtIndex:indexPath.row]];
+    [cell configWithModel:[self.tweetArray objectAtIndex:indexPath.row]];
     return cell;
 }
 
@@ -65,18 +65,17 @@
 {
     if (isShow) {
         NSLog(@"show");
-        cell.isFullText = YES;
+        
     }else {
         NSLog(@"not show");
-        cell.isFullText = NO;
     }
     
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    if (indexPath) {
-        [UIView performWithoutAnimation:^{
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        }];
-    }
+//    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
+//    if (indexPath) {
+//        [UIView performWithoutAnimation:^{
+//            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//        }];
+//    }
 }
 
 - (void)didClickImageWithIndex:(NSInteger)imageIndex
@@ -91,7 +90,6 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
         _tableView.tableHeaderView = self.tableHeaderView;
         _tableView.separatorInset = UIEdgeInsetsZero;
-        //_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }
@@ -104,6 +102,15 @@
         _tableHeaderView = [[TWMomentHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth * 0.655)];
     }
     return _tableHeaderView;
+}
+
+- (NSMutableArray *)tweetArray
+{
+    if (!_tweetArray) {
+        _tweetArray = [NSMutableArray new];
+    }
+    
+    return _tweetArray;
 }
 
 #pragma mark: dealloc
@@ -129,6 +136,26 @@
     }];
 }
 
+- (void)requestMomentInfo{
+    __weak typeof(self) weakSelf = self;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [TWNetworkManager requestMomentInfoWithFinishBlock:^(id data, NSError *error) {
+        if (error.code == 0) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            NSArray *listArray = (NSArray *)data;
+            for (id sampleModel in listArray) {
+                TWTweetModel *model = [TWTweetModel mj_objectWithKeyValues:sampleModel];
+                if (model.content) { // 未发言Content的过滤掉
+                    [weakSelf.tweetArray addObject:model];
+                }
+            }
+            if (weakSelf.tweetArray.count > 0) {
+                [weakSelf.tableView reloadData];
+            }
+        }
+    }];
+}
+
 #pragma mark: date mocks
 - (NSMutableArray *)mockTitleArray
 {
@@ -139,11 +166,9 @@
 }
 
 - (void)initData{
-    
     //网络请求
     [self requestUserInfo];
-    
-    self.mockTitleArray = @[@"先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度",@"先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度",@"先试试UILabel的自定义长度先试试UILabel的自定义长度",@"仰天大笑出门去，我辈岂是蓬蒿人，仰天大笑出门去，我辈岂是蓬蒿人，仰天大笑出门去，我辈岂是蓬蒿人",@"先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度",@"先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度,先试试UILabel的自定义长度",@"先试试UILabel的自定义长度先试试UILabel的自定义长度",@"仰天大笑出门去，我辈岂是蓬蒿人，仰天大笑出门去，我辈岂是蓬蒿人，仰天大笑出门去，我辈岂是蓬蒿人"].mutableCopy;
+    [self requestMomentInfo];
 }
 
 @end

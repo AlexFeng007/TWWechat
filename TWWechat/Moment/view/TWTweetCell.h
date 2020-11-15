@@ -21,11 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<TWTweetCellDelegate> delegate;
 
 + (NSString *)cellIdentifier;
-- (void)setContentWith:(TWTweetModel *)model;
-- (void)setContentTitle:(NSString *)content;
+- (void)configWithModel:(TWTweetModel *)model;
 
 //Temp Data:will delete
-@property (nonatomic, assign) BOOL isFullText;
+//@property (nonatomic, assign) BOOL isFullText;
 @end
 
 NS_ASSUME_NONNULL_END
