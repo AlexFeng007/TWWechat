@@ -91,7 +91,7 @@
 
 - (void)didClickImageWithIndex:(NSInteger)imageIndex
 {
-    //Todo: Show Image
+    //Todo: Single Tap to Show Image
 }
 
 #pragma mark: lazy
@@ -110,7 +110,7 @@
 - (TWMomentHeaderView *)tableHeaderView
 {
     if (!_tableHeaderView) {
-        _tableHeaderView = [[TWMomentHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth * 0.655)];
+        _tableHeaderView = [[TWMomentHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 270)];
     }
     return _tableHeaderView;
 }
