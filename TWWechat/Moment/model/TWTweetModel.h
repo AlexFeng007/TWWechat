@@ -18,12 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSMutableArray <TWMomentCommentItemModel *> *commentArray;
 @property (nonatomic, strong) TWMomentSenderModel *authorModel;
 
-
-//method
-- (void)calculateContentWords;
 //layout views properties
 @property (nonatomic, assign) BOOL isFullText; //default NO
-@property (nonatomic, assign) CGFloat rowHeight;
+@property (nonatomic, assign) CGFloat rowHeight; //cache rowHeight
+
+- (void)calculateContentWords;
 @end
 
 /*TWMomentSenderModel*/

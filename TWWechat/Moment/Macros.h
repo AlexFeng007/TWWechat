@@ -23,6 +23,7 @@
 // ImageView backgroundcolor
 #define kImageViewBGColor    [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.0]
 
+//CommentViewList
 #define kImageWidth 75
 #define kImagePadding 5
 #define kCommentItemHeight 16
@@ -31,6 +32,9 @@
 // TweetCell content MaxWidth && MaxHeight
 #define kContentMaxWidth     [UIScreen mainScreen].bounds.size.width - 15*2 - 40
 #define kContentMaxHeight    100
+
+// MaxWords not shrink
+#define kMaxWords   100
 
 
 #endif /* Macros_h */

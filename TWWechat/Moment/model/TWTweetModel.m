@@ -8,6 +8,8 @@
 
 #import "TWTweetModel.h"
 #import "MJExtension.h"
+#import "Macros.h"
+
 /*TWTweetModel*/
 @implementation TWTweetModel
 + (NSDictionary *)mj_replacedKeyFromPropertyName{
@@ -21,7 +23,7 @@
 
 - (void)calculateContentWords
 {
-    if ([self.content length] > 100) { // maxwords = 100
+    if ([self.content length] > kMaxWords) { // maxwords = 100
         self.isFullText = NO;
     }else{
         self.isFullText = YES;

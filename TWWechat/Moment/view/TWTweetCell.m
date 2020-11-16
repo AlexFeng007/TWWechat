@@ -85,7 +85,7 @@ CGFloat itemSpaceing = 10;
         self.shrinkBtn.frame = CGRectMake(self.nickName.left, self.contentLabel.bottom + itemSpaceing, 40, 20);
     }
     
-    if ([self.contentLabel.text length] > 0 && [self.contentLabel.text length] < 100) {
+    if ([self.contentLabel.text length] > 0 && [self.contentLabel.text length] < kMaxWords) {
         self.contentLabel.numberOfLines = 0;
         self.shrinkBtn.hidden = YES;
         rowHeight = self.contentLabel.bottom + itemSpaceing;
