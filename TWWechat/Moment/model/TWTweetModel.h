@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @class TWMomentCommentItemModel;
 @interface TWTweetModel : NSObject
 @property (nonatomic, copy) NSString *content;
-@property (nonatomic, copy) NSArray *imageList;
-@property (nonatomic, copy) NSArray <TWMomentCommentItemModel *> *commentArray;
+@property (nonatomic, copy) NSMutableArray *imageList;
+@property (nonatomic, copy) NSMutableArray <TWMomentCommentItemModel *> *commentArray;
 @property (nonatomic, strong) TWMomentSenderModel *authorModel;
 
 

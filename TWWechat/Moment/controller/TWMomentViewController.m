@@ -65,6 +65,7 @@
                                   reuseIdentifier:[TWTweetCell cellIdentifier]];
     }
     cell.delegate = self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell configWithModel:[self.tweetArray objectAtIndex:indexPath.row]];
     return cell;
 }
@@ -72,23 +73,18 @@
 #pragma mark: TWTweetCellDelegate
 - (void)didClickShinkWithType:(BOOL)isShow withCell:(TWTweetCell *)cell
 {
-    if (isShow) {
-        NSLog(@"show");
-    }else {
-        NSLog(@"not show");
-    }
-    
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     TWTweetModel *model = [self.tweetArray objectAtIndex:indexPath.row];
     if (isShow) {
         model.isFullText = YES;
     }else{
-         model.isFullText = NO;
+        model.isFullText = NO;
     }
     
     if (indexPath) {
         [UIView performWithoutAnimation:^{
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath]
+                                  withRowAnimation:UITableViewRowAnimationNone];
         }];
     }
 }

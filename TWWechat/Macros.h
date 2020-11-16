@@ -20,9 +20,17 @@
 #define kNickNameColor       [UIColor colorWithRed:0.28 green:0.35 blue:0.54 alpha:1.0]
 // Button TextColor
 #define kButtonTextColor     [UIColor colorWithRed:0.09 green:0.49 blue:0.99 alpha:1.0]
+// ImageView backgroundcolor
+#define kImageViewBGColor    [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.0]
+
+#define kImageWidth 75
+#define kImagePadding 5
+#define kCommentItemHeight 16
+#define kCommentItemSpace 5
 
 // TweetCell content MaxWidth && MaxHeight
 #define kContentMaxWidth     [UIScreen mainScreen].bounds.size.width - 15*2 - 40
 #define kContentMaxHeight    100
+
 
 #endif /* Macros_h */

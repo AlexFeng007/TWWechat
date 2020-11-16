@@ -11,6 +11,7 @@ target 'TWWechat' do
   pod  'AFNetworking'
   pod  'SDWebImage'
   pod  'MBProgressHUD'
+  pod  'MLLabel'
 
   target 'TWWechatTests' do
     inherit! :search_paths

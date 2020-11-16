@@ -9,6 +9,7 @@
 #import "TWMomentHeaderView.h"
 #import "TWUserModel.h"
 #import "Masonry.h"
+#import "Macros.h"
 #import "SDWebImage.h"
 
 @interface TWMomentHeaderView ()
@@ -69,6 +70,7 @@
     if (!_avartView) {
         _avartView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 75, 75)];
         _avartView.image = [UIImage imageNamed:@"user_avatar_image"];
+        _avartView.backgroundColor = kImageViewBGColor;
         _avartView.layer.borderWidth = 2;
         _avartView.layer.cornerRadius = 6;
         _avartView.clipsToBounds = YES;

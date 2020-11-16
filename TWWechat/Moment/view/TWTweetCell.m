@@ -8,13 +8,14 @@
 
 #import "TWTweetCell.h"
 #import "TWTweetModel.h"
+#import "TWImageListView.h"
+#import "TWCommentView.h"
 
 #import "Masonry.h"
 #import "Macros.h"
 #import "SDWebImage.h"
 #import "UIView+Geometry.h"
 
-CGFloat maxLimitHeight = 0;
 CGFloat lineSpacing = 5;
 CGFloat itemSpaceing = 10;
 
@@ -24,6 +25,9 @@ CGFloat itemSpaceing = 10;
 
 @property (nonatomic, strong) UIImageView *avartImageView;
 @property (nonatomic, strong) UIButton *shrinkBtn;
+
+@property (nonatomic, strong) TWImageListView *imageListView;
+@property (nonatomic, strong) TWCommentView *commnetView;
 
 @property (nonatomic, strong) NSMutableArray *imageArray;
 @property (nonatomic, strong) NSMutableArray *commentArray;
@@ -55,6 +59,8 @@ CGFloat itemSpaceing = 10;
 
 - (void)updateLayoutViews
 {
+    CGFloat rowHeight = 0;
+    
     //content
     if([self.contentLabel.text length] > 0) {
         NSMutableParagraphStyle * style = [[NSMutableParagraphStyle alloc] init];
@@ -79,18 +85,60 @@ CGFloat itemSpaceing = 10;
         self.shrinkBtn.frame = CGRectMake(self.nickName.left, self.contentLabel.bottom + itemSpaceing, 40, 20);
     }
     
-    
     if ([self.contentLabel.text length] > 0 && [self.contentLabel.text length] < 100) {
         self.contentLabel.numberOfLines = 0;
         self.shrinkBtn.hidden = YES;
+        rowHeight = self.contentLabel.bottom + itemSpaceing;
+    }else{
+        rowHeight = self.shrinkBtn.bottom + itemSpaceing;
     }
     
-    //最终缓存行高 (暂时以contentLabel为基准)
-    if (self.shrinkBtn.isHidden) {
-        self.model.rowHeight = self.contentLabel.bottom + 15;
-    }else{
-        self.model.rowHeight = self.shrinkBtn.bottom + 15;
+    // imageListView
+    if ([self.model.imageList count] > 0) {
+        [self.contentView addSubview:self.imageListView];
+        [self.imageListView loadImagesWith:self.model.imageList];
+        
+        CGFloat startY;
+        if (self.shrinkBtn.hidden) {
+            startY = self.contentLabel.bottom + itemSpaceing;
+        }else{
+            startY = self.shrinkBtn.bottom + itemSpaceing;
+        }
+        
+        self.imageListView.origin = CGPointMake(self.contentLabel.left, startY);
+        rowHeight = self.imageListView.bottom + itemSpaceing;
+    }else {
+        if ([self.imageListView superview]) {
+            [self.imageListView removeFromSuperview];
+        }
     }
+    
+    // commnetView
+    if ([self.model.commentArray count] > 0) {
+        [self.contentView addSubview:self.commnetView];
+        [self.commnetView loadCommentWith:self.model.commentArray];
+        
+        
+        CGFloat startY;
+        if ([self.imageListView superview]) {
+            startY = self.imageListView.bottom + itemSpaceing;
+        }else{
+            if (self.shrinkBtn.hidden) {
+                startY = self.contentLabel.bottom + itemSpaceing;
+            }else{
+                startY = self.shrinkBtn.bottom + itemSpaceing;
+            }
+        }
+        self.commnetView.origin = CGPointMake(self.contentLabel.left, startY);
+        rowHeight = self.commnetView.bottom + itemSpaceing;
+    }else{
+        if ([self.commnetView superview]) {
+            [self.commnetView removeFromSuperview];
+        }
+    }
+    
+    //最终缓存行高
+    self.model.rowHeight = rowHeight;
 }
 
 #pragma mark: public method
@@ -106,7 +154,7 @@ CGFloat itemSpaceing = 10;
     [self updateLayoutViews];
 }
 
-#pragma mark: lazy
+#pragma mark: lazy view
 - (UIImageView *)avartImageView
 {
     if (!_avartImageView) {
@@ -152,6 +200,24 @@ CGFloat itemSpaceing = 10;
     }
     return _shrinkBtn;
 }
+
+- (TWImageListView *)imageListView
+{
+    if (!_imageListView) {
+        _imageListView = [[TWImageListView alloc] init];
+    }
+    return _imageListView;
+}
+
+- (TWCommentView *)commnetView
+{
+    if (!_commnetView) {
+        _commnetView = [[TWCommentView alloc] init];
+    }
+    return _commnetView;
+}
+
+#pragma mark: lazy data
 
 - (NSMutableArray *)imageArray
 {

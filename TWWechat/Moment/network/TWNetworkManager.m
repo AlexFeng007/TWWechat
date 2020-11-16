@@ -28,10 +28,8 @@ typedef NS_ENUM(NSInteger, URLTYPE) {
 
 +(void)get:(NSString *)url params:(NSDictionary *)params completion:(TWNetworkInterfaceBlock)completion
 {
-    //1.获得请求管理者
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     
-    //2.发送Get请求
     [mgr GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (completion) {
             completion(responseObject,nil);
