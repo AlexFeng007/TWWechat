@@ -168,7 +168,6 @@
 				B954CBB2255FE35400ADBD0D /* Moment */,
 				B954CB74255F884200ADBD0D /* AppDelegate.h */,
 				B954CB75255F884200ADBD0D /* AppDelegate.m */,
-				B954CBB1255FE08B00ADBD0D /* Macros.h */,
 				B954CB77255F884200ADBD0D /* SceneDelegate.h */,
 				B954CB78255F884200ADBD0D /* SceneDelegate.m */,
 				B954CB7A255F884200ADBD0D /* ViewController.h */,
@@ -203,6 +202,7 @@
 		B954CBB2255FE35400ADBD0D /* Moment */ = {
 			isa = PBXGroup;
 			children = (
+				B954CBB1255FE08B00ADBD0D /* Macros.h */,
 				B954CBC725616F6A00ADBD0D /* extension */,
 				B954CBBF2561282C00ADBD0D /* network */,
 				B954CBB5255FE38700ADBD0D /* model */,
@@ -228,14 +228,8 @@
 				B954CBAF255FA3CB00ADBD0D /* TWMomentHeaderView.m */,
 				B954CBB6255FE3EC00ADBD0D /* TWTweetCell.h */,
 				B954CBB7255FE3EC00ADBD0D /* TWTweetCell.m */,
-				B954CBCB2562138400ADBD0D /* TWImageListView.h */,
-				B954CBCC2562138400ADBD0D /* TWImageListView.m */,
-				B954CBCE25621DE300ADBD0D /* TWImageView.h */,
-				B954CBCF25621DE300ADBD0D /* TWImageView.m */,
-				B954CBD125626C4600ADBD0D /* TWCommentView.h */,
-				B954CBD225626C4600ADBD0D /* TWCommentView.m */,
-				B954CBD425627F7B00ADBD0D /* TWCommentLabel.h */,
-				B954CBD525627F7B00ADBD0D /* TWCommentLabel.m */,
+				B954CBDC2562ABDB00ADBD0D /* comment */,
+				B954CBDB2562ABBF00ADBD0D /* imagelist */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -267,6 +261,28 @@
 				B954CBC925616F9A00ADBD0D /* UIView+Geometry.m */,
 			);
 			path = extension;
+			sourceTree = "<group>";
+		};
+		B954CBDB2562ABBF00ADBD0D /* imagelist */ = {
+			isa = PBXGroup;
+			children = (
+				B954CBCB2562138400ADBD0D /* TWImageListView.h */,
+				B954CBCC2562138400ADBD0D /* TWImageListView.m */,
+				B954CBCE25621DE300ADBD0D /* TWImageView.h */,
+				B954CBCF25621DE300ADBD0D /* TWImageView.m */,
+			);
+			path = imagelist;
+			sourceTree = "<group>";
+		};
+		B954CBDC2562ABDB00ADBD0D /* comment */ = {
+			isa = PBXGroup;
+			children = (
+				B954CBD125626C4600ADBD0D /* TWCommentView.h */,
+				B954CBD225626C4600ADBD0D /* TWCommentView.m */,
+				B954CBD425627F7B00ADBD0D /* TWCommentLabel.h */,
+				B954CBD525627F7B00ADBD0D /* TWCommentLabel.m */,
+			);
+			path = comment;
 			sourceTree = "<group>";
 		};
 		FAF82E6A4C5B8F4953BBE202 /* Pods */ = {
