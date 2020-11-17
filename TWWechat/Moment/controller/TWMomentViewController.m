@@ -14,6 +14,7 @@
 #import "Masonry.h"
 #import "Macros.h"
 #import "MJExtension.h"
+#import "MJRefresh.h"
 #import "MBProgressHUD.h"
 
 #import "TWUserModel.h"
@@ -25,14 +26,40 @@
 
 @property (nonatomic, strong) TWUserModel *userModel;
 @property (nonatomic, strong) NSMutableArray *tweetArray;
+@property (nonatomic, strong) NSMutableArray *tweetLoadArray;
+
+@property (nonatomic, assign) NSInteger pages;
+@property (nonatomic, assign) NSInteger index;
 @end
 
 @implementation TWMomentViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self initData];
     [self setupViews];
+    [self initRefresh];
+}
+
+- (void)initData
+{
+    [self requestUserInfo];
+    [self requestMomentInfo];
+}
+
+- (void)initRefresh
+{
+    __weak typeof(self) weakSelf = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf resetPagesIndex];
+        [weakSelf requestUserInfo];
+        [weakSelf requestMomentInfo];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf requestMomentInfoWithPageIndex:weakSelf.index];
+    }];
 }
 
 - (void)setupViews
@@ -43,11 +70,17 @@
     }];
 }
 
+- (void)resetPagesIndex
+{
+    self.pages = 0;
+    self.index = 0;
+}
+
 #pragma mark: Delegate && Datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.tweetArray.count;
+    return self.tweetLoadArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -91,7 +124,7 @@
 
 - (void)didClickImageWithIndex:(NSInteger)imageIndex
 {
-    //Todo: Single Tap to Show Image
+    //Todo: Show Image
 }
 
 #pragma mark: lazy
@@ -123,6 +156,14 @@
     return _tweetArray;
 }
 
+- (NSMutableArray *)tweetLoadArray
+{
+    if (!_tweetLoadArray) {
+        _tweetLoadArray = [NSMutableArray new];
+    }
+    return _tweetLoadArray;
+}
+
 #pragma mark: dealloc
 - (void)dealloc
 {
@@ -131,26 +172,32 @@
 }
 
 #pragma mark: Networking Request
-- (void)requestUserInfo {
+- (void)requestUserInfo
+{
     __weak typeof(self) weakSelf = self;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TWNetworkManager requestUserInfoWithFinishBlock:^(id data, NSError *error) {
-        if (data && [data isKindOfClass:[NSDictionary class]]) {
-            TWUserModel *model = [TWUserModel mj_objectWithKeyValues:data];
-            if (model) {
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-                weakSelf.userModel = model;
-                [weakSelf.tableHeaderView updateUserInfoWith:model];
+        if (error.code == 0) {
+            if (data && [data isKindOfClass:[NSDictionary class]]) {
+                TWUserModel *model = [TWUserModel mj_objectWithKeyValues:data];
+                if (model) {
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    weakSelf.userModel = model;
+                    [weakSelf.tableHeaderView updateUserInfoWith:model];
+                }
             }
         }
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
 
-- (void)requestMomentInfo{
+- (void)requestMomentInfo
+{
     __weak typeof(self) weakSelf = self;
     [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
     [TWNetworkManager requestMomentInfoWithFinishBlock:^(id data, NSError *error) {
         if (error.code == 0) {
+            [weakSelf.tweetArray removeAllObjects];
             NSArray *listArray = (NSArray *)data;
             for (id sampleModel in listArray) {
                 TWTweetModel *model = [TWTweetModel mj_objectWithKeyValues:sampleModel];
@@ -159,18 +206,48 @@
                     [weakSelf.tweetArray addObject:model];
                 }
             }
+            
+            // 判断第一次是否显示footer
+            if (weakSelf.tweetArray.count > 5) {
+                [weakSelf.tableView.mj_footer setHidden:NO];
+            }else{
+                [weakSelf.tableView.mj_footer setHidden:YES];
+            }
+            
             if (weakSelf.tweetArray.count > 0) {
-                [weakSelf.tableView reloadData];
-                [MBProgressHUD hideHUDForView:self.tableView animated:YES];
+                weakSelf.pages = (weakSelf.tweetArray.count / 5) + 1;
+                [weakSelf requestMomentInfoWithPageIndex:0]; //下拉刷新从第0页开始请求
             }
         }
     }];
 }
 
-- (void)initData{
-    //网络请求
-    [self requestUserInfo];
-    [self requestMomentInfo];
+- (void)requestMomentInfoWithPageIndex:(NSInteger)index
+{
+    if (index >= self.pages) {
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView.mj_footer setHidden:YES];
+        return ;
+    }
+
+    [self.tweetLoadArray removeAllObjects];
+    NSInteger showCount = (index + 1) * 5;
+    
+    if (showCount > self.tweetArray.count) {
+        showCount = self.tweetArray.count;
+        [self.tableView.mj_footer setHidden:YES];
+    }
+    
+    for (int i = 0; i < showCount; i++) {
+        TWTweetModel *model = [self.tweetArray objectAtIndex:i];
+        [self.tweetLoadArray addObject:model];
+    }
+    
+    [MBProgressHUD hideHUDForView:self.tableView animated:YES];
+    [self.tableView reloadData];
+    [self.tableView.mj_footer endRefreshing];
+    self.index++;
+    
 }
 
 @end

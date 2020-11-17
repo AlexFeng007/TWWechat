@@ -12,6 +12,7 @@ target 'TWWechat' do
   pod  'SDWebImage'
   pod  'MBProgressHUD'
   pod  'MLLabel'
+  pod  'MJRefresh'
 
   target 'TWWechatTests' do
     inherit! :search_paths
