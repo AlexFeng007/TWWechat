@@ -30,7 +30,7 @@
 
 - (void)setupViews
 {
-    //Set backgroundColor?
+    self.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)removeAllSubViews
@@ -55,10 +55,11 @@
     }
     
     self.commentArray = commentArray;
-    CGFloat itemHeight = 0;
     
+    CGFloat itemHeight = 0;
     CGFloat startX = 0;
     CGFloat startY = 5;
+    
     for (int i = 0; i < self.commentModelArray.count; i++) {
         TWCommentLabel *label = [[TWCommentLabel alloc] init];
         [label configCommnetWithModel:[self.commentModelArray objectAtIndex:i]];

@@ -69,7 +69,7 @@ CGFloat itemSpaceing = 10;
         [attributedText addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0,[self.contentLabel.text length])];
         self.contentLabel.attributedText = attributedText;
         
-        // 判断显示'全文'/'收起'
+        // 全文/收起
         if(self.model.isFullText) {
             self.contentLabel.numberOfLines = 0;
             self.shrinkBtn.selected = self.model.isFullText;
@@ -247,7 +247,6 @@ CGFloat itemSpaceing = 10;
 }
 
 #pragma mark: cellIdentifier
-
 + (NSString *)cellIdentifier
 {
     return NSStringFromClass([self class]);

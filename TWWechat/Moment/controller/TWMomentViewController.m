@@ -229,7 +229,8 @@
     }
 
     [self.tableView.mj_footer beginRefreshing];
-    //模拟接口分页请求耗时
+    
+    //模拟接口分页请求耗时loading
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tweetLoadArray removeAllObjects];
         NSInteger showCount = (index + 1) * 5;

@@ -59,6 +59,7 @@
         @"imageUrl":@"url",
     };
 }
+
 @end
 
 
