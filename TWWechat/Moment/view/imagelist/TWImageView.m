@@ -28,7 +28,7 @@
 
 - (void)tapImage:(UIGestureRecognizer *)gesture
 {
-    NSLog(@"tap the image");
+    //Todo: Tap Image
 }
 
 @end

@@ -34,7 +34,7 @@
 #define kContentMaxHeight    100
 
 // MaxWords not shrink
-#define kMaxWords   100
+#define kMaxWords   80
 
 
 #endif /* Macros_h */

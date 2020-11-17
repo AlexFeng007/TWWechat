@@ -23,7 +23,7 @@
 
 - (void)calculateContentWords
 {
-    if ([self.content length] > kMaxWords) { // maxwords = 100
+    if ([self.content length] > kMaxWords) {
         self.isFullText = NO;
     }else{
         self.isFullText = YES;
