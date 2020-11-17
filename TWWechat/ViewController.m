@@ -27,7 +27,7 @@
     [self.showMomentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.view.mas_centerX);
         make.centerY.mas_equalTo(self.view.mas_centerY);
-        make.width.mas_equalTo(80.f);
+        make.width.mas_equalTo(100.f);
         make.height.mas_equalTo(36.f);
     }];
 }
@@ -44,7 +44,7 @@
 {
     if (!_showMomentBtn) {
         _showMomentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _showMomentBtn.frame = CGRectMake(0, 0, 120, 80);
+        _showMomentBtn.frame = CGRectMake(0, 0, 160, 80);
         _showMomentBtn.backgroundColor = [UIColor redColor];
         _showMomentBtn.titleLabel.textColor = [UIColor whiteColor];
         _showMomentBtn.titleLabel.font = [UIFont systemFontOfSize:14.f];

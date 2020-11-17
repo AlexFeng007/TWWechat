@@ -7,6 +7,7 @@
 //
 
 #import "TWMomentViewController.h"
+#import "TWMomentViewController+Appearance.h"
 #import "TWNetworkManager.h"
 #import "TWMomentHeaderView.h"
 #import "TWTweetCell.h"
@@ -37,6 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupNav];
     [self initData];
     [self setupViews];
     [self initRefresh];
@@ -115,10 +117,7 @@
     }
     
     if (indexPath) {
-        [UIView performWithoutAnimation:^{
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath]
-                                  withRowAnimation:UITableViewRowAnimationNone];
-        }];
+        [self.tableView reloadData];
     }
 }
 
@@ -247,7 +246,6 @@
     [self.tableView reloadData];
     [self.tableView.mj_footer endRefreshing];
     self.index++;
-    
 }
 
 @end

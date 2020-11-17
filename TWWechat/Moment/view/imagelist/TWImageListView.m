@@ -24,7 +24,7 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        //Todo: Set border?
+        //Todo: Set border
     }
     return self;
 }

@@ -10,6 +10,7 @@
 		154C9D7DFF328BE869979CF3 /* Pods_TWWechat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD6E68D3833691908CBF1C8 /* Pods_TWWechat.framework */; };
 		A56C4903E6FE4FB6E5256E12 /* Pods_TWWechatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30FC414B3171481CE60904B9 /* Pods_TWWechatUITests.framework */; };
 		A5BB12BDD8DE5C690F880112 /* Pods_TWWechatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FD60A9E85D016B66E882CE /* Pods_TWWechatTests.framework */; };
+		B94DF38D256393B400BC330F /* TWMomentViewController+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = B94DF38C256393B400BC330F /* TWMomentViewController+Appearance.m */; };
 		B954CB76255F884200ADBD0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CB75255F884200ADBD0D /* AppDelegate.m */; };
 		B954CB79255F884200ADBD0D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CB78255F884200ADBD0D /* SceneDelegate.m */; };
 		B954CB7C255F884200ADBD0D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B954CB7B255F884200ADBD0D /* ViewController.m */; };
@@ -56,6 +57,8 @@
 		4FD9A73E5CDFF7505E6E5532 /* Pods-TWWechatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWWechatTests.debug.xcconfig"; path = "Target Support Files/Pods-TWWechatTests/Pods-TWWechatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6D86AAC548D8C91CD01556FE /* Pods-TWWechatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWWechatTests.release.xcconfig"; path = "Target Support Files/Pods-TWWechatTests/Pods-TWWechatTests.release.xcconfig"; sourceTree = "<group>"; };
 		80F080B9E7E59DF5CB9A875D /* Pods-TWWechat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWWechat.release.xcconfig"; path = "Target Support Files/Pods-TWWechat/Pods-TWWechat.release.xcconfig"; sourceTree = "<group>"; };
+		B94DF38B256393B400BC330F /* TWMomentViewController+Appearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TWMomentViewController+Appearance.h"; sourceTree = "<group>"; };
+		B94DF38C256393B400BC330F /* TWMomentViewController+Appearance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TWMomentViewController+Appearance.m"; sourceTree = "<group>"; };
 		B954CB71255F884200ADBD0D /* TWWechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TWWechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B954CB74255F884200ADBD0D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B954CB75255F884200ADBD0D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 			children = (
 				B954CBAB255F903800ADBD0D /* TWMomentViewController.h */,
 				B954CBAC255F903800ADBD0D /* TWMomentViewController.m */,
+				B94DF38B256393B400BC330F /* TWMomentViewController+Appearance.h */,
+				B94DF38C256393B400BC330F /* TWMomentViewController+Appearance.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -529,6 +534,7 @@
 				B954CBCA25616F9A00ADBD0D /* UIView+Geometry.m in Sources */,
 				B954CB79255F884200ADBD0D /* SceneDelegate.m in Sources */,
 				B954CBBE2561269100ADBD0D /* TWUserModel.m in Sources */,
+				B94DF38D256393B400BC330F /* TWMomentViewController+Appearance.m in Sources */,
 				B954CBCD2562138400ADBD0D /* TWImageListView.m in Sources */,
 				B954CBBB255FE95700ADBD0D /* TWTweetModel.m in Sources */,
 				B954CBD625627F7B00ADBD0D /* TWCommentLabel.m in Sources */,
