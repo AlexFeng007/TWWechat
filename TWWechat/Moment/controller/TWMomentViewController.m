@@ -94,8 +94,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TWTweetCell *cell = [tableView dequeueReusableCellWithIdentifier:[TWTweetCell cellIdentifier]];
-    if (!cell)
-    {
+    if (!cell) {
         cell = [[TWTweetCell alloc] initWithStyle:UITableViewCellStyleDefault
                                   reuseIdentifier:[TWTweetCell cellIdentifier]];
     }
@@ -229,23 +228,27 @@
         return ;
     }
 
-    [self.tweetLoadArray removeAllObjects];
-    NSInteger showCount = (index + 1) * 5;
-    
-    if (showCount > self.tweetArray.count) {
-        showCount = self.tweetArray.count;
-        [self.tableView.mj_footer setHidden:YES];
-    }
-    
-    for (int i = 0; i < showCount; i++) {
-        TWTweetModel *model = [self.tweetArray objectAtIndex:i];
-        [self.tweetLoadArray addObject:model];
-    }
-    
-    [MBProgressHUD hideHUDForView:self.tableView animated:YES];
-    [self.tableView reloadData];
-    [self.tableView.mj_footer endRefreshing];
-    self.index++;
+    [self.tableView.mj_footer beginRefreshing];
+    //模拟接口分页请求耗时
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tweetLoadArray removeAllObjects];
+        NSInteger showCount = (index + 1) * 5;
+        
+        if (showCount > self.tweetArray.count) {
+            showCount = self.tweetArray.count;
+            [self.tableView.mj_footer setHidden:YES];
+        }
+        
+        for (int i = 0; i < showCount; i++) {
+            TWTweetModel *model = [self.tweetArray objectAtIndex:i];
+            [self.tweetLoadArray addObject:model];
+        }
+        
+        [MBProgressHUD hideHUDForView:self.tableView animated:YES];
+        [self.tableView reloadData];
+        [self.tableView.mj_footer endRefreshing];
+        self.index++;
+    });
 }
 
 @end
