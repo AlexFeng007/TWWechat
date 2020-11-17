@@ -31,6 +31,11 @@
 - (void)setupViews
 {
     [self addSubview:self.bgView];
+    [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.mas_equalTo(self);
+        make.bottom.mas_equalTo(self.mas_bottom).offset(-20);
+    }];
+    
     [self addSubview:self.avartView];
     [self.avartView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(75.f);
